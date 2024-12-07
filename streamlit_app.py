@@ -157,10 +157,13 @@ fortune_data = {
     ]
 }
 
-# 占い結果を選択して表示
-if category:
-    fortune = random.choice(fortune_data[category])
-    st.write(f"**運勢:** {fortune['fortune']}")
-    st.write(f"**詳細アドバイス:** {fortune['detail']}")
-    st.write(f"**ラッキーアイテム:** {fortune['lucky_item']}")
-    st.write(f"**ラッキーカラー:** {fortune['lucky_color']}")
+# 「運勢を占う」ボタンがクリックされたときに運勢を表示
+if st.button("運勢を占う"):
+    if category:
+        fortune = random.choice(fortune_data[category])
+        st.write(f"**運勢:** {fortune['fortune']}")
+        st.write(f"**詳細アドバイス:** {fortune['detail']}")
+        st.write(f"**ラッキーアイテム:** {fortune['lucky_item']}")
+        st.write(f"**ラッキーカラー:** {fortune['lucky_color']}")
+    else:
+        st.warning("カテゴリーを選択してください。")
