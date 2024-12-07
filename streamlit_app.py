@@ -88,4 +88,51 @@ fortune_data = {
         },
         {
             "fortune": "少し疲れが溜まっているかもしれません。休息を取ることを忘れずに。",
-            "detail
+            "detail": "疲れが溜まっていると感じたら、無理をせずしっかりと休むことが大切です。リラックスして心身の回復を促しましょう。",
+            "lucky_item": "アロマキャンドル",
+            "lucky_color": "ラベンダー"
+        },
+        {
+            "fortune": "食生活に気をつけることで、心身のバランスが整います。",
+            "detail": "健康な食事を心がけることが、体調改善のカギです。バランスの取れた食事を摂ることを意識しましょう。",
+            "lucky_item": "フルーツ",
+            "lucky_color": "オレンジ"
+        },
+        {
+            "fortune": "リラックスした時間が大切な日。ストレスを解消しましょう。",
+            "detail": "ストレスがたまると体調に影響が出ることがあります。リラックスした時間を過ごして、ストレスを解消することが大切です。",
+            "lucky_item": "温泉タオル",
+            "lucky_color": "ピンク"
+        },
+        {
+            "fortune": "体のケアに気を使うことで、元気を取り戻せる日です。",
+            "detail": "体調が少し優れないと感じたら、早めにケアを始めましょう。マッサージやストレッチで体の調子を整えましょう。",
+            "lucky_item": "マッサージオイル",
+            "lucky_color": "ホワイト"
+        },
+    ],
+}
+
+# 複数の運勢を表示するボタン
+num_fortunes = 3  # 表示する運勢の数
+
+# 占いボタンが押されたとき
+if st.button("占う"):
+    if name:
+        st.write(f"{name}さん、今日の{category}占いの結果は:")
+
+        # ランダムに複数の運勢を選択して表示
+        selected_fortunes = random.sample(fortune_data[category], num_fortunes)
+        
+        for i, fortune in enumerate(selected_fortunes, 1):
+            st.write(f"**{i}. {fortune['fortune']}**")
+            st.write(f"詳細: {fortune['detail']}")
+            st.write(f"ラッキーアイテム: {fortune['lucky_item']}")
+            st.write(f"ラッキーカラー: {fortune['lucky_color']}")
+    else:
+        st.warning("名前を入力してください。")
+
+# アプリケーションの説明
+st.write("""
+このアプリは、今日の運勢を占うアプリです。占いたいカテゴリー（恋愛、仕事、健康）を選んで、運勢をチェックしてみましょう！
+ラッキーアイテムとラッキーカラーも一緒に
