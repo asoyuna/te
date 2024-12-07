@@ -126,13 +126,4 @@ if st.button("占う"):
         
         for i, fortune in enumerate(selected_fortunes, 1):
             st.write(f"**{i}. {fortune['fortune']}**")
-            st.write(f"詳細: {fortune['detail']}")
-            st.write(f"ラッキーアイテム: {fortune['lucky_item']}")
-            st.write(f"ラッキーカラー: {fortune['lucky_color']}")
-    else:
-        st.warning("名前を入力してください。")
-
-# アプリケーションの説明
-st.write("""
-このアプリは、今日の運勢を占うアプリです。占いたいカテゴリー（恋愛、仕事、健康）を選んで、運勢をチェックしてみましょう！
-ラッキーアイ
+            st
